@@ -19,7 +19,13 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-
+- task: DownloadPipelineArtifact@2
+  inputs:
+    buildType: 'specific'
+    project: 'be684747-c79a-4473-a4f5-2f1d83f9f5f1'
+    definition: '3'
+    buildVersionToDownload: 'latest'
+    targetPath: '$(Pipeline.Workspace)'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
